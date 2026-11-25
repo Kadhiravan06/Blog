@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter, Newsreader } from "next/font/google";
 import { Suspense } from "react";
 import "./globals.css";
+import { siteUrl } from "@/lib/site-url";
 import { SiteFooter } from "@/components/site-footer";
 import { NavSkeleton, SiteNav } from "@/components/site-nav";
 
@@ -14,7 +15,7 @@ const serif = Newsreader({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"),
+  metadataBase: new URL(siteUrl()),
   title: { default: "The Margin", template: "%s · The Margin" },
   description: "Essays on attention, craft, and the web. A small blog with a long memory.",
   openGraph: { title: "The Margin", description: "Essays on attention, craft, and the web.", type: "website" },
