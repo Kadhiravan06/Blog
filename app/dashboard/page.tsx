@@ -32,6 +32,14 @@ async function Dashboard() {
           </p>
         </div>
         <div className="flex items-center gap-2">
+          {viewer.role === "admin" ? (
+            <Link
+              href="/admin"
+              className="rounded-full px-4 py-2 text-sm text-muted transition-colors hover:bg-wash hover:text-ink"
+            >
+              Moderation
+            </Link>
+          ) : null}
           <Link
             href="/settings"
             className="rounded-full px-4 py-2 text-sm text-muted transition-colors hover:bg-wash hover:text-ink"
