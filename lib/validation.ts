@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-const tagSchema = z
+export const tagSchema = z
   .string()
   .trim()
   .toLowerCase()
@@ -35,6 +35,11 @@ export const profileInputSchema = z
     bio: z.string().trim().max(280),
   })
   .partial();
+
+export const pageQuerySchema = z.object({
+  page: z.coerce.number().int().min(1).max(1000).default(1),
+  tag: tagSchema.optional(),
+});
 
 export type PostInput = z.input<typeof postInputSchema>;
 export type PostPatch = z.infer<typeof postPatchSchema>;
